@@ -23,6 +23,10 @@ if (!empty($_COOKIE['jwt'])) {
             $api = new Response();
             http_response_code(200);
             $api->generate_response("Email Sent", 200);
+        } else {
+            $api = new Response();
+            http_response_code(500);
+            $api->generate_response("Email Not Sent", 500);
         }
 
         //registering email request data in db regardless the response is success or failure.
