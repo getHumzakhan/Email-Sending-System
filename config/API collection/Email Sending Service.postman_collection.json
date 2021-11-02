@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "c6113ed8-0ed0-48bb-a19a-9a0853db90cb",
+		"name": "Email Sending Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "check connection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/email_sending_service/config/db/database.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"email_sending_service",
+						"config",
+						"db",
+						"database.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant Signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Abbas Ali\",\r\n    \"email\" :\"Abbas_Ali@gmail.com\",\r\n    \"pass\" : \"Abbas_123\",\r\n    \"confirm_pass\" : \"Abbas_123\",\r\n    \"img_url\" : \"IMG_3306.JPG\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/email_sending_service/public/api/merchant/signup.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"email_sending_service",
+						"public",
+						"api",
+						"merchant",
+						"signup.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Merchant Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" :\"Abbas_Ali@gmail.com\",\r\n    \"pass\" : \"Abbas_123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/email_sending_service/public/api/merchant/login.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"email_sending_service",
+						"public",
+						"api",
+						"merchant",
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Email",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reference\" : \"7xaj42ada34alc9\",\r\n    \"webhook_url\" : \"\",\r\n    \"email_struct\" : {\r\n        \"from\" : \"ahood.khalid@dnsc.uol.edu.pk\",\r\n        \"recipient_email\": \"getjhondoe@gmail.com\",\r\n        \"recipient_name\" : \"jhon doe\",\r\n        \"cc\" : \"khanhumza37@gmail.com\",\r\n        \"cc_name\" : \"Muhammad Hamza Khan\",\r\n        \"bcc\" : \"ohumzakhan@gmail.com\",\r\n        \"bcc_name\" : \"humza khan\",\r\n        \"subject\" : \"API testing \",\r\n        \"body\" : \"Hello Jhon Doe! I am testing my API YET\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/email_sending_service/public/api/merchant/sendEmail.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"email_sending_service",
+						"public",
+						"api",
+						"merchant",
+						"sendEmail.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "accessTokenHaseeb",
+			"value": "---"
+		},
+		{
+			"key": "accessTokenJamal",
+			"value": ""
+		}
+	]
+}
