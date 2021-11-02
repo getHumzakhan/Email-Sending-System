@@ -15,7 +15,7 @@ class EmailRequests extends DataBase
     private $merchant_id;
     private $date_time;
 
-    public function __Merchants()
+    public function __EmailRequests()
     {
         parent::__construct();
     }

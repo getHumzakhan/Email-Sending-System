@@ -1,9 +1,5 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/models/email_requests.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/public/api_response/response.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/vendor/autoload.php";
-
-use Firebase\JWT\JWT;
 
 class RequestController
 {

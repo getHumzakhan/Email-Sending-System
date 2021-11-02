@@ -1,4 +1,5 @@
 <?php
+//DO NOT MANIPULATE THIS CLASS
 class DataBase
 {
     private $server_name = "localhost";
@@ -14,10 +15,10 @@ class DataBase
             $conn = new PDO("mysql:host=$this->server_name;dbname=$this->db_name", $this->username, $this->password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->connection=$conn;
-          } catch(PDOException $e) {
+            $this->connection = $conn;
+        } catch (PDOException $e) {
             echo "Connection failed: " . $e->getMessage();
-          }
+        }
     }
     //getting database connection reference / identifier
     public function get_connection()

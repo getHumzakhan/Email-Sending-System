@@ -7,7 +7,6 @@ use \Mailjet\Resources;
 
 class MerchantController
 {
-
     //receives associative array
     public function sign_up($signup_data)
     {
