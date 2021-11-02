@@ -1,9 +1,8 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/models/merchants.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/public/api_response/response.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/vendor/autoload.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/helpers/api_auth.php";
 
-use Firebase\JWT\JWT;
 use \Mailjet\Resources;
 
 class MerchantController
@@ -66,33 +65,13 @@ class MerchantController
     //set jwt in cookie as well as DB
     public function set_jwt($merchant_data)
     {
-        $jwt = $this->generate_jwt($merchant_data);
+        $auth = new ApiAuth();
+        $jwt = $auth->generate_jwt($merchant_data);
         $merchant_id = $merchant_data['merchant_id'];
 
         $merchant = new Merchants();
         $merchant->set_merchant_jwt($jwt, $merchant_id);
         setrawcookie("jwt", $jwt, time() + 86400);
-    }
-
-    //passed current merchant's database record
-    public function generate_jwt($merchant_data)
-    {
-        //define jwt payload
-        $payload = array(
-            "iss" => "localhost",
-            "iat" => time(),
-            "exp" => time() + 86400,
-            "aud" => "merchant",
-            "data" => array(
-                "id" => $merchant_data['merchant_id'],
-                "user_name" => $merchant_data['user_name'],
-                "email" => $merchant_data['email']
-            )
-        );
-        $secret_key = "Am40_23%xW";
-        $jwt = JWT::encode($payload, $secret_key);
-
-        return $jwt;
     }
 
     public function get_mail_body($from, $recipient_email, $cc, $cc_name, $bcc, $bcc_name, $recipient_name, $sub, $body)

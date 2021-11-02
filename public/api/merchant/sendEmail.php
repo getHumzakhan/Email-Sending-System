@@ -19,6 +19,11 @@ if (!empty($_COOKIE['jwt'])) {
         //sending email
         $merchant = new MerchantController();
         $response = $merchant->send_email($email_request);
+        if (!empty($response)) {
+            $api = new Response();
+            http_response_code(200);
+            $api->generate_response("Email Sent", 200);
+        }
 
         //registering email request data in db regardless the response is success or failure.
         $email = new RequestController();

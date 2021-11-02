@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/public/api_response/response.php";
 require_once '../../../helpers/validator.php';
-require_once '../../../controllers/merchant_controller.php';
+require_once '../../../controllers/merchants_controller.php';
 
 header('content-type: application/json');
 $api = new Response();
