@@ -7,8 +7,6 @@ header('content-type: application/json');
 
 $request_data = json_decode(file_get_contents('php://input'), true);
 $request_ref = $request_data['reference'];
-// var_dump($request_reference);
-// exit;
 
 if (!empty($_COOKIE['jwt'])) {
 
