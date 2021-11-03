@@ -9,7 +9,6 @@ class Merchants extends DataBase
     private $password;
     private $credit_amount;
     private $img_url;
-    private $is_secondary_user;
     private $jwt;
 
     public function __Merchants()
@@ -107,6 +106,21 @@ class Merchants extends DataBase
                 $this->set_merchant($merchant_data);
                 return true;
             }
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
+
+    public function update_merchant_credit($merchant_id, $credit_amount)
+    {
+        $updated_credit = $credit_amount - 0.0489;
+        try {
+            $conn = $this->get_connection();
+            $statement = "UPDATE merchants SET credit_amount=:updated_amount WHERE merchant_id=:merchant_id";
+            $stmt = $conn->prepare($statement);
+            $stmt->bindParam(":updated_amount", $updated_credit);
+            $stmt->bindParam(":merchant_id", $merchant_id);
+            $stmt->execute();
         } catch (PDOException $e) {
             $e->getMessage();
         }

@@ -21,13 +21,15 @@ if (!empty($_COOKIE['jwt'])) {
         //sending email
         $merchant = new MerchantController();
         $response = $merchant->send_email($email_request);
+        $merchant->update_credit($valid_merchant['merchant_id'], $valid_merchant['credit_amount']);
+
         $email_status = new EmailStatusController();
 
         if (!empty($response)) {
             $msg = "Sent";
             $status_code = 200;
             $description = "Email has been successfully sent to " . $email_request['email_struct']['recipient_email'];
-
+            //api response
             $api = new Response();
             http_response_code(200);
             $api->generate_response($msg, $status_code);

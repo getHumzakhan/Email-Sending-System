@@ -129,6 +129,11 @@ class MerchantController
             return false;
         }
     }
+    public function update_credit($merchant_id, $credit_amount)
+    {
+        $merchant_table = new Merchants();
+        $merchant_table->update_merchant_credit($merchant_id, $credit_amount);
+    }
 
 
     // CODE STRUCT USED FOR SENDING EMAIL VIA LOCALHOST

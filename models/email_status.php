@@ -16,7 +16,6 @@ class EmailStatus extends DataBase
 
     public function insert_status_data($status, $status_code, $description, $request_reference)
     {
-        echo "SSs";
         try {
             $conn = $this->get_connection();
             $statement = "INSERT INTO email_status(_status, _status_code,_description ,_request_reference)
