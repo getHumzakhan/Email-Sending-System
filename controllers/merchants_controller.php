@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/models/merchants.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/models/email_requests.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/public/api_response/response.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/email_sending_service/helpers/api_auth.php";
 
@@ -133,6 +134,12 @@ class MerchantController
     {
         $merchant_table = new Merchants();
         $merchant_table->update_merchant_credit($merchant_id, $credit_amount);
+    }
+
+    public function view_email_request($request_reference, $merchant_id)
+    {
+        $email_request = new EmailRequests();
+        return $email_request->get_email_request($request_reference, $merchant_id);
     }
 
 

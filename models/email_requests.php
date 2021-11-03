@@ -19,7 +19,11 @@ class EmailRequests extends DataBase
     {
         parent::__construct();
     }
+    public function set_email_request($email)
+    {
+    }
 
+    //creates a new record of email request in db
     public function insert_request_data($email_request, $merchant_id)
     {
         try {
@@ -38,6 +42,33 @@ class EmailRequests extends DataBase
             $stmt->bindParam(":_body", $email_request['email_struct']['body']);
             $stmt->bindParam(":merchant_id", $merchant_id);
             $stmt->execute();
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+    }
+
+    //finds email request against provided reference and upon success, loads the current object
+    public function get_email_request($request_reference, $merchant_id)
+    {
+        try {
+            $conn = $this->get_connection();
+            $statement = "SELECT * FROM email_requests WHERE request_reference=:req_reference";
+            $stmt = $conn->prepare($statement);
+            $stmt->bindParam(':req_reference', $request_reference);
+            $stmt->execute();
+            $stmt->setFetchMode($conn::FETCH_ASSOC);
+            $email_request = $stmt->fetchAll();
+
+            if (empty($email_request)) {
+                return null;
+            } else {
+
+                if ($email_request[0]['merchant_id'] === $merchant_id) {
+                    return $email_request;
+                } else {
+                    return 403;
+                }
+            }
         } catch (PDOException $e) {
             $e->getMessage();
         }

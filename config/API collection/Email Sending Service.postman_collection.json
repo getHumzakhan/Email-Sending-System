@@ -35,7 +35,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\" : \"Abbas Ali\",\r\n    \"email\" :\"Abbas_Ali@gmail.com\",\r\n    \"pass\" : \"Abbas_123\",\r\n    \"confirm_pass\" : \"Abbas_123\",\r\n    \"img_url\" : \"IMG_3306.JPG\"\r\n}",
+					"raw": "{\r\n    \"name\" : \"Muhammad Yousaf Khan\",\r\n    \"email\" :\"iamyousafkhan@gmail.com\",\r\n    \"pass\" : \"yousaf_123\",\r\n    \"confirm_pass\" : \"yousaf_123\",\r\n    \"img_url\" : \"IMG_3306.JPG\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -68,7 +68,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\" :\"Abbas_Ali@gmail.com\",\r\n    \"pass\" : \"Abbas_123\"\r\n}",
+					"raw": "{\r\n    \"email\" :\"iamyousafkhan@gmail.com\",\r\n    \"pass\" : \"yousaf_123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -101,7 +101,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"reference\" : \"7xaj42ada34alc9\",\r\n    \"webhook_url\" : \"\",\r\n    \"email_struct\" : {\r\n        \"from\" : \"ahood.khalid@dnsc.uol.edu.pk\",\r\n        \"recipient_email\": \"getjhondoe@gmail.com\",\r\n        \"recipient_name\" : \"jhon doe\",\r\n        \"cc\" : \"khanhumza37@gmail.com\",\r\n        \"cc_name\" : \"Muhammad Hamza Khan\",\r\n        \"bcc\" : \"ohumzakhan@gmail.com\",\r\n        \"bcc_name\" : \"humza khan\",\r\n        \"subject\" : \"API testing \",\r\n        \"body\" : \"Hello Jhon Doe! I am testing my API YET\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"reference\" : \"xmsdjj238asd8d\",\r\n    \"webhook_url\" : \"\",\r\n    \"email_struct\" : {\r\n        \"from\" : \"ahood.khalid@dnsc.uol.edu.pk\",\r\n        \"recipient_email\": \"hkhurshid95@gmail.com\",\r\n        \"recipient_name\" : \"jhon doe\",\r\n        \"cc\" : \"khanhumza37@gmail.com\",\r\n        \"cc_name\" : \"Muhammad Hamza Khan\",\r\n        \"bcc\" : \"ohumzakhan@gmail.com\",\r\n        \"bcc_name\" : \"humza khan\",\r\n        \"subject\" : \"API testing \",\r\n        \"body\" : \"Hello Jhon! This is Ahood, I am testing my API\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -119,6 +119,42 @@
 						"api",
 						"merchant",
 						"sendEmail.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Requests",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reference\" : \"xmsd910loid73sh38d\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/email_sending_service/public/api/merchant/view_requests.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"email_sending_service",
+						"public",
+						"api",
+						"merchant",
+						"view_requests.php"
 					]
 				}
 			},

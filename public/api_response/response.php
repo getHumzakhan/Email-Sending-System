@@ -14,6 +14,10 @@ class Response
                 "message" => $this->message,
                 "status_code" => $this->status_code
             );
+        } else if (empty($this->message) && empty($this->status_code)) {
+            $response = array(
+                "data" => $this->data
+            );
         } else {
             $response = array(
                 "message" => $this->message,
@@ -25,10 +29,11 @@ class Response
     }
 
     //Creates response and responds to request.
-    function generate_response($msg, $status_code)
+    function generate_response($msg = null, $status_code = null, $data = null)
     {
         $this->message = $msg;
         $this->status_code = $status_code;
+        $this->data = $data;
         $this->respond_api();
     }
 
